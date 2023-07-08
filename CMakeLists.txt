@@ -1,7 +1,7 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.21)
 PROJECT(NTProExchange)
 
-SET(CMAKE_CXX_STANDARD 20)
+SET(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fsanitize=address,undefined -g")
 add_compile_options(-Wall -Wextra -Wpedantic -Werror)
 add_link_options(-Wall -Wextra -Wpedantic -Werror)
