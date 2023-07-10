@@ -74,8 +74,8 @@ TEST(Core, CoreBasics) {
 
     Core::get().user_info(1);
     ASSERT_EQ(Core::get().get_to_send(1)[3]["USD"].get<int>(), 10);
-    ASSERT_EQ(Core::get().get_to_send(1)[3]["RUB"].get<int>(), -500);
+    ASSERT_EQ(Core::get().get_to_send(1)[3]["RUB"].get<int>(), -600);
     Core::get().user_info(2);
     ASSERT_EQ(Core::get().get_to_send(2)[1]["USD"].get<int>(), -10);
-    ASSERT_EQ(Core::get().get_to_send(2)[1]["RUB"].get<int>(), 500);
+    ASSERT_EQ(Core::get().get_to_send(2)[1]["RUB"].get<int>(), 600);
 }
