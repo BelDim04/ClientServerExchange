@@ -77,7 +77,7 @@ private:
                                       registry.get_request_str(ERequests::ERAuth)),
                     make_message_pair(EFields::EFUserId, user_id));
                 boost::asio::write(socket_, boost::asio::buffer(req, req.size()));
-                boost::asio::read_until(socket_, buffer_, '\n');
+                boost::asio::read_until(socket_, buffer_, '\0');
                 std::istream is(&buffer_);
                 std::string line(std::istreambuf_iterator<char>(is), {});
                 auto j = nlohmann::json::parse(line);

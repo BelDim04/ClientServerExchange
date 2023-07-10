@@ -42,7 +42,7 @@ private:
                                 !sessions_[user_id_].expired()) {
                                 boost::asio::async_write(
                                     socket_,
-                                    boost::asio::buffer(reg.error_response_.dump() + '\n'),
+                                    boost::asio::buffer(reg.error_response_.dump() + '\0'),
                                     [this, self](std::error_code ec, size_t /*length*/) {
                                         if (!ec) {
                                             auth();
@@ -52,7 +52,7 @@ private:
                                 sessions_[user_id_] = weak_from_this();
                                 boost::asio::async_write(
                                     socket_,
-                                    boost::asio::buffer(reg.ok_response_.dump() + '\n'),
+                                    boost::asio::buffer(reg.ok_response_.dump() + '\0'),
                                     [this, self](std::error_code ec, size_t /*length*/) {
                                         if (!ec) {
                                             do_write();
